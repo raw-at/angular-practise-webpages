@@ -43,7 +43,26 @@ so when ever the js variable change that binded property changes
 4.ng-repeat --> loop over the items in collection 
  The placed in the html code also get repeated over the looping of the ng-repeat over the collections items
  
-
+5. ng-class --> specified css class applied to the element
+6. ng-click --> specified action taken when the element is clicked
 ---------------------------------------
 Important point :: expression in angular in {{2+3}} like that
 
+-----------------------------------
+MVC
+1.Model manage the behaviour and data of the application domain
+2.View manages how it is presented to the user
+3.Controller : It gets the information from the user and manages the change in the model
+
+
+Angular module collection of:
+COntroller
+DIrective
+FIlters
+Service 
+and other configuration information
+
+Angular Controller is JS Object:
+
+defining menu controller 
+<div ng-controller = 'menuController as menuCtrl'></div>

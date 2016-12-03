@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang='en' ng-app>
+<html lang='en' ng-app="confusionApp"> <!-- name of module -->
+
 <head>
 	<title>AngularJs</title>
 		<meta charset="utf-8">
@@ -24,61 +25,21 @@
 
 	<div class="container">
 
-		<div class="row row-content" 		
-			ng-init = "
-			dishes=[
-			{
-			name:'Uthapizza',
-			image:'images/pizza.jpg',
-			category:'mains',
-			label:'Hot',
-			price:'4.99',
-			description:'A unique pizza tht will sizzle your mouthfull of bump loadsfor the fun and enjoy with the freindes and the family',
-			comment:''
-			
-
-
-			},
-			{
-			name:'Uthapizza',
-			image:'images/pizza.jpg',
-			category:'mains',
-			label:'Hot',
-			price:'4.99',
-			description:'A unique pizza tht will sizzle your mouthfull of bump loadsfor the fun and enjoy with the freindes and the family',
-			comment:''
-				
-
-			},
-			{
-				name:'Uthapizza',
-			image:'images/pizza.jpg',
-			category:'mains',
-			label:'Hot',
-			price:'4.99',
-			description:'A unique pizza tht will sizzle your mouthfull of bump loadsfor the fun and enjoy with the freindes and the family',
-			comment:''
-			
-
-			},
-
-			{
-				name:'Uthapizza',
-			image:'images/pizza.jpg',
-			category:'mains',
-			label:'Hot',
-			price:'4.99',
-			description:'A unique pizza tht will sizzle your mouthfull of bump loadsfor the fun and enjoy with the freindes and the family',
-			comment:''
-			
-
-			}
-
-			]">
+		<div class="row row-content" ng-controller='menuController as menuCtrl'>
 
 			<div class="col-xs-12">
-			<ul class='meida-list'>
-				<li class="media" ng-repeat="dish in dishes">
+
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" ng-class="{active:menuCtrl.isSelected(1)}"><a ng-click="menuCtrl.select(1)" aria-control='all menu' role='tab'>The Menu</a></li>
+  <li role="presentation" ng-class="{active:menuCtrl.isSelected(2)}" ><a ng-click="menuCtrl.select(2)" aria-control='appetizers' role='tab'>Appetizers</a></li>
+  <li role="presentation" ng-class="{active:menuCtrl.isSelected(3)}"><a ng-click="menuCtrl.select(3)" aria-control='mains' role='tab'>Mains</a></li>
+  <li role="presentation" ng-class="{active:menuCtrl.isSelected(4)}"><a  ng-click="menuCtrl.select(4)" aria-control='desserts' role='tab'>Desserts</a></li>
+</ul>
+
+	
+		<div class="tab-content">
+			<ul class='meida-list tab-pane fade in active'>
+				<li class="media" ng-repeat="dish in menuCtrl.dishes | filter:menuCtrl.filtText">
 					<div class="media-left media-middle">
 					<a href="#"><img class="media-object img-thumbnail" ng-src="{{dish.image}}" alt="Uthapizza"></a>
 					</div>
@@ -90,18 +51,23 @@
 					<span class="badge">
 						{{dish.price | currency}} <!-- currency filter-->
 					</span>
+		
 					<p>{{dish.description}}</p>
+
+				<!--
 					<p> Comment: {{dish.comment}}</p>
 					<p>
 						
 					Type your comment:
-					<input type="text" ng-model="dish.comment"> <!-- Assigning value to dish property using ng-model-->
+					<input type="text" ng-model="dish.comment"> <!-- Assigning value to dish property using ng-model
 
 					</p>
+					-->
 
 					</div>
 				</li>
 				</ul>
+			</div>
 			</div>
 
 
@@ -115,37 +81,138 @@
 
 	</div>
 
+<div class="jumbotron" ng-controller = 'data_extractor as de'>
+<p>{{de.personal_details.name}}</p><hr>
+<p>{{de.personal_details.lastname}}</p><hr>
+<p>{{de.personal_details.Work}}</p><hr>
+
+</div>
+
+
+<!--
+
+<div class="row row-content" ng-controller = "menuController as menuCtrl">
+
+
+</div>
+
+
+
+<script>
+	var app = angular.module('confusionApp',[]); //making angular module
+
+	//since app is module therefore it can have controller
+
+	app.controller('menuController',function(){
+
+	});
+</script>
 
 
 
 
+-->
 
 
 
 
+<script>
+		//module creation
+		var app = angular.module('confusionApp',[]);
+		app.controller('menuController',function(){
+
+		this.tab = 1;
+
+		this.filtText = '';
+
+		var dishes=[
+			{
+			name:'Uthapizza',
+			image:'images/pizza.jpg',
+			category:'mains',
+			label:'Hot',
+			price:'4.99',
+			description:'A unique pizza tht will sizzle your mouthfull of bump loadsfor the fun and enjoy with the freindes and the family',
+			comment:''
+			
+
+
+			},
+			{
+			name:'Uthapizza',
+			image:'images/pizza.jpg',
+			category:'appetizers',
+			label:'Hot',
+			price:'4.99',
+			description:'A unique pizza tht will sizzle your mouthfull of bump loadsfor the fun and enjoy with the freindes and the family',
+			comment:''
+				
+
+			},
+			{
+				name:'rajgula',
+			image:'images/pizza.jpg',
+			category:'desserts',
+			label:'Hot',
+			price:'4.99',
+			description:'A unique pizza tht will sizzle your mouthfull of bump loadsfor the fun and enjoy with the freindes and the family',
+			comment:''
+			
+
+			},
+
+			{
+				name:'chowmean',
+			image:'images/pizza.jpg',
+			category:'appetizers',
+			label:'Hot',
+			price:'4.99',
+			description:'A unique pizza tht will sizzle your mouthfull of bump loadsfor the fun and enjoy with the freindes and the family',
+			comment:''
+			
+
+			}];
+			this.dishes = dishes;
+
+
+		this.select=function(setTab){
+
+			this.tab = setTab;
+
+			if(setTab == 2)
+				this.filtText = 'appetizers';
+
+			else if(setTab == 3)
+				this.filtText = 'mains';
+			else if(setTab == 4)
+				this.filtText = 'desserts';
+			else
+				this.filtText = ''
+		}
+
+			this.isSelected = function(checktab){
+
+				return(this.tab === checkTab)
+			};
 
 
 
 
+		});
 
+		app.controller('data_extractor',function(){
 
+			personal_details = {
+				name:'Abhinav',
+				lastname:'Rawat',
+				Work:'developer',
+				Employeed:'Self Employeed',
+				age:20
+			};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			this.personal_details = personal_details;
+		})
+</script>
 
 </body>
 </html>
