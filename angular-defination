@@ -1,0 +1,25 @@
+//difference between 
+library and framework
+
+library: In this our code is incharge and we use library functions to make it more useful
+
+Framework: In this framework  in in charge and it uses our code for filling the gaps and details needed.It call our function if it needed
+
+Framework Working line
+---------------------------
+Don't call us We call you back
+------------------------------
+
+Imperative Programming:- In this steps to be done to complete the task
+User has more control
+------------------------------------
+Declarative Programming:- We are more concerned about what need to done not how
+User has less control
+-------------------------------------
+
+Learing about
+
+1.Single Page Applications
+2.MVC 
+3.Scalable,Reusable,Maintanable
+4.Test driven development
