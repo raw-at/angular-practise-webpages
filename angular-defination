@@ -23,3 +23,27 @@ Learing about
 2.MVC 
 3.Scalable,Reusable,Maintanable
 4.Test driven development
+
+------------------------------------
+
+Angular directive -- are built in html attribute html to extend dynamic nature to static html
+
+1.ng-app --> applied to specific root of the application <html> or <body>
+Between this tag angular is applicable
+
+2.ng-init --> use to evaluate an expression also used to initialize js variable 
+
+3.ng-model --> bind an input value to variable in js
+-Two way data binding coming in action
+
+It mean to bind a html/css property to js variable
+so when ever the js variable change that binded property changes
+
+
+4.ng-repeat --> loop over the items in collection 
+ The placed in the html code also get repeated over the looping of the ng-repeat over the collections items
+ 
+
+---------------------------------------
+Important point :: expression in angular in {{2+3}} like that
+

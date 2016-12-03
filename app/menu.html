@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang='en' ng-app>
+<head>
+	<title>AngularJs</title>
+		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+ 		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+
+
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="row row-content" 		
+			ng-init = "
+			dishes=[
+			{
+			name:'Uthapizza',
+			image:'images/pizza.jpg',
+			category:'mains',
+			label:'Hot',
+			price:'4.99',
+			description:'A unique pizza tht will sizzle your mouthfull of bump loadsfor the fun and enjoy with the freindes and the family',
+			comment:''
+			
+
+
+			},
+			{
+			name:'Uthapizza',
+			image:'images/pizza.jpg',
+			category:'mains',
+			label:'Hot',
+			price:'4.99',
+			description:'A unique pizza tht will sizzle your mouthfull of bump loadsfor the fun and enjoy with the freindes and the family',
+			comment:''
+				
+
+			},
+			{
+				name:'Uthapizza',
+			image:'images/pizza.jpg',
+			category:'mains',
+			label:'Hot',
+			price:'4.99',
+			description:'A unique pizza tht will sizzle your mouthfull of bump loadsfor the fun and enjoy with the freindes and the family',
+			comment:''
+			
+
+			},
+
+			{
+				name:'Uthapizza',
+			image:'images/pizza.jpg',
+			category:'mains',
+			label:'Hot',
+			price:'4.99',
+			description:'A unique pizza tht will sizzle your mouthfull of bump loadsfor the fun and enjoy with the freindes and the family',
+			comment:''
+			
+
+			}
+
+			]">
+
+			<div class="col-xs-12">
+			<ul class='meida-list'>
+				<li class="media" ng-repeat="dish in dishes">
+					<div class="media-left media-middle">
+					<a href="#"><img class="media-object img-thumbnail" ng-src="{{dish.image}}" alt="Uthapizza"></a>
+					</div>
+					<div class="media-body">
+					<h2 class="media-heading">{{dish.name}}</h2>
+					<span class="lable label-danger label-xs">
+						{{dish.label}}
+					</span>
+					<span class="badge">
+						{{dish.price | currency}} <!-- currency filter-->
+					</span>
+					<p>{{dish.description}}</p>
+					<p> Comment: {{dish.comment}}</p>
+					<p>
+						
+					Type your comment:
+					<input type="text" ng-model="dish.comment"> <!-- Assigning value to dish property using ng-model-->
+
+					</p>
+
+					</div>
+				</li>
+				</ul>
+			</div>
+
+
+
+
+
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
